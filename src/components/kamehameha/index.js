@@ -7,14 +7,17 @@ import {
 } from 'react-native';
 
 import styles from './styles';
+import KamehamehaNormal from '../../img/kamehameha-normal.jpg';
+import KamehamehaCharging from '../../img/kamehameha-charging.gif';
+import KamehamehaFire from '../../img/kamehameha-fire.gif';
 
 class Kamehameha extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>
-					This is Kamehameha
-				</Text>
+				<Image
+					source={KamehamehaFire}
+				/>
 			</View>
 		);
 	}
