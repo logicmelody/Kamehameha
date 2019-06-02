@@ -5,6 +5,7 @@ import {
 	map,
 	delay,
 	takeUntil,
+	filter,
 } from 'rxjs/operators';
 
 import {
@@ -18,6 +19,7 @@ import {
 
 export function kamehamehaChargeEpic(action$) {
 	return action$.pipe(
+		// filter(action => CHARGE_KAMEHAMEHA === action.type),
 		ofType(CHARGE_KAMEHAMEHA),
 		switchMap(() =>
 			of(0).pipe(
