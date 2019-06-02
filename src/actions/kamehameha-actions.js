@@ -4,19 +4,19 @@ import {
 	FIRE_KAMEHAMEHA,
 } from './action-types';
 
-function stopKamehamehaAction() {
+export function stopKamehamehaAction() {
 	return {
 		type: STOP_KAMEHAMEHA,
 	};
 }
 
-function chargeKamehamehaAction() {
+export function chargeKamehamehaAction() {
 	return {
 		type: CHARGE_KAMEHAMEHA,
 	};
 }
 
-function fireKamehamehaAction() {
+export function fireKamehamehaAction() {
 	return {
 		type: FIRE_KAMEHAMEHA,
 	};
