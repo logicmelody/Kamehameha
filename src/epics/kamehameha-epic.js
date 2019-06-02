@@ -1,10 +1,10 @@
-import { ofType } from "redux-observable";
-import { ajax } from "rxjs/ajax";
+import { ofType } from 'redux-observable';
+import { ajax } from 'rxjs/ajax';
 import {
 	switchMap,
 	map,
 	catchError,
-} from "rxjs/operators";
+} from 'rxjs/operators';
 
 export function kamehamehaChargingEpic(action$) {
 	return action$.pipe(
