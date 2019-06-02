@@ -1,11 +1,11 @@
 import { combineEpics } from 'redux-observable';
 
 import {
-	kamehamehaChargingEpic,
+	kamehamehaChargeEpic,
 } from './kamehameha-epic';
 
 const epics = combineEpics(
-	kamehamehaChargingEpic,
+	kamehamehaChargeEpic,
 );
 
 export default epics;

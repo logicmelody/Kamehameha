@@ -6,7 +6,7 @@ import {
 	catchError,
 } from 'rxjs/operators';
 
-export function kamehamehaChargingEpic(action$) {
+export function kamehamehaChargeEpic(action$) {
 	return action$.pipe(
 		switchMap(() =>
 			ajax({

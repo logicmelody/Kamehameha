@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import {
 	View,
 	Image,
-	Text,
 } from 'react-native';
 
 import styles from './styles';
 import KamehamehaNormal from '../../img/kamehameha-normal.jpg';
-import KamehamehaCharging from '../../img/kamehameha-charging.gif';
+import KamehamehaCharge from '../../img/kamehameha-charge.gif';
 import KamehamehaFire from '../../img/kamehameha-fire.gif';
 
 class Kamehameha extends Component {
@@ -16,7 +15,7 @@ class Kamehameha extends Component {
 		return (
 			<View style={styles.container}>
 				<Image
-					source={KamehamehaFire}
+					source={KamehamehaCharge}
 				/>
 			</View>
 		);
