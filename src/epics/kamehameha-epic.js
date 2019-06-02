@@ -21,7 +21,7 @@ export function kamehamehaChargeEpic(action$) {
 	return action$.pipe(
 		// filter(action => CHARGE_KAMEHAMEHA === action.type),
 		ofType(CHARGE_KAMEHAMEHA),
-		switchMap(() =>
+		switchMap(action =>
 			of(0).pipe(
 				delay(5000),
 				takeUntil(action$.pipe(ofType(STOP_KAMEHAMEHA))),
