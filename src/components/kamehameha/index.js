@@ -13,6 +13,10 @@ import {
 } from '../../actions/kamehameha-actions';
 
 import {
+	stopVegetaAttackAction,
+} from '../../actions/vegeta-actions';
+
+import {
 	KamehamehaStatusEnum,
 } from '../../utils/utils';
 
@@ -27,6 +31,7 @@ class Kamehameha extends Component {
 			kamehamehaStatus,
 			stopKamehamehaAction,
 			chargeKamehamehaAction,
+			stopVegetaAttackAction,
 		} = this.props;
 
 		switch (kamehamehaStatus) {
@@ -39,11 +44,21 @@ class Kamehameha extends Component {
 				);
 
 			case KamehamehaStatusEnum.CHARGE:
+				return (
+					<Button
+						title='停止集氣'
+						onPress={stopKamehamehaAction}
+					/>
+				);
+
 			case KamehamehaStatusEnum.FIRE:
 				return (
 					<Button
-						title='停止發射'
-						onPress={stopKamehamehaAction}
+						title='停止攻擊'
+						onPress={() => {
+							stopKamehamehaAction();
+							stopVegetaAttackAction();
+						}}
 					/>
 				);
 
@@ -114,8 +129,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-	stopKamehamehaAction,
 	chargeKamehamehaAction,
+	stopKamehamehaAction,
+	stopVegetaAttackAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Kamehameha);
