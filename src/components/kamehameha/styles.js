@@ -9,9 +9,16 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 
-	image: {
+	kamehamehaImage: {
 		height: 300,
 		marginBottom: 20,
+	},
+
+	vegetaImage: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+		width: 300,
 	},
 });
 

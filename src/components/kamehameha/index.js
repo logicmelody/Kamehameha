@@ -24,6 +24,7 @@ import styles from './styles';
 import KamehamehaNormal from '../../img/kamehameha-normal.jpg';
 import KamehamehaCharge from '../../img/kamehameha-charge.gif';
 import KamehamehaFire from '../../img/kamehameha-fire.gif';
+import VegetaAttack from '../../img/vegeta-attack.gif'
 
 class Kamehameha extends Component {
 	_renderActionButtons = () => {
@@ -72,21 +73,40 @@ class Kamehameha extends Component {
 		}
 	}
 
+	_renderVegetaAttack = () => {
+		const {
+			isVegetaAttackStatus,
+		} = this.props;
+
+		if (isVegetaAttackStatus) {
+			return (
+				<Image
+					style={styles.vegetaImage}
+					source={VegetaAttack}
+					resizeMode='contain'
+				/>
+			);
+		}
+	}
+
 	render() {
 		const {
 			kamehamehaStatus,
 		} = this.props;
 
 		const {
+			_renderVegetaAttack,
 			_renderActionButtons,
 		} = this;
 
 		return (
 			<View style={styles.container}>
 				<Image
-					style={styles.image}
+					style={styles.kamehamehaImage}
 					source={getImage(kamehamehaStatus)}
 				/>
+
+				{_renderVegetaAttack()}
 
 				{_renderActionButtons()}
 			</View>
@@ -121,10 +141,12 @@ const getImage = (status) => {
 const mapStateToProps = (state) => {
 	const {
 		kamehamehaStatus,
+		isVegetaAttackStatus,
 	} = state;
 
 	return {
 		kamehamehaStatus,
+		isVegetaAttackStatus,
 	};
 };
 
