@@ -1,24 +1,27 @@
 import { ofType } from 'redux-observable';
-import { ajax } from 'rxjs/ajax';
+import { of } from 'rxjs';
 import {
 	switchMap,
 	map,
-	catchError,
+	delay,
 } from 'rxjs/operators';
+
+import {
+	CHARGE_KAMEHAMEHA,
+} from '../actions/action-types';
+
+import {
+	stopKamehamehaAction,
+	fireKamehamehaAction,
+} from '../actions/kamehameha-actions';
 
 export function kamehamehaChargeEpic(action$) {
 	return action$.pipe(
+		ofType(CHARGE_KAMEHAMEHA),
 		switchMap(() =>
-			ajax({
-				url: `${apiBaseUrl}/release`,
-				method: "GET",
-				headers: Object.assign({}, DefaultHeader, {
-					"Accept": "application/json"
-				})
-			}).pipe(
-				map(payload => payload.response),
-				map(fetchLatestReleaseSuccessAction),
-				catchError(error => catchErrorMessageForEpics(error, fetchLatestReleaseFailedAction))
+			of(0).pipe(
+				delay(5000),
+				map(fireKamehamehaAction),
 			)
 		)
 	);
