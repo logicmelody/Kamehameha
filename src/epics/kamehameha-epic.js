@@ -31,6 +31,7 @@ export function kamehamehaChargeEpic(action$) {
 				delay(5000),
 				takeUntil(action$.pipe(ofType(STOP_KAMEHAMEHA))),
 				// map(fireKamehamehaAction),
+				// flatMap(action => of(fireKamehamehaAction(), vegetaAttackAction())),
 				flatMap(action => [fireKamehamehaAction(), vegetaAttackAction()]),
 			)
 		)
